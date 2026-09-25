@@ -36,8 +36,9 @@ jobs:
 
       - name: Iniciar API
         run: |
-          npm start > api.log 2>&1 &
+          nohup npm start > api.log 2>&1 < /dev/null &
           echo $! > api.pid
+
           echo "API iniciada com PID $(cat api.pid)"
 
       - name: Aguardar API
@@ -74,10 +75,18 @@ jobs:
           echo "Encerrando API..."
 
           if [ -f api.pid ]; then
-            kill "$(cat api.pid)" 2>/dev/null || true
-            echo "API encerrada."
+            PID=$(cat api.pid)
+
+            if kill -0 "$PID" 2>/dev/null; then
+              kill "$PID" 2>/dev/null || true
+              echo "Processo da API encerrado."
+            else
+              echo "Processo da API já estava encerrado."
+            fi
           else
-            echo "PID da API não encontrado."
+            echo "Arquivo api.pid não encontrado."
           fi
 
-          sleep 2
+          sleep 1
+
+          echo "Finalização concluída."
