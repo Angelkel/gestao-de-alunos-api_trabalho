@@ -34,7 +34,29 @@ jobs:
       - name: Instalar dependências
         run: npm ci
 
+      - name: Iniciar API
+        run: |
+          npm start > api.log 2>&1 &
+
+      - name: Aguardar API
+        run: |
+          for i in {1..30}; do
+            if curl --fail --silent http://127.0.0.1:3000/ > /dev/null; then
+              echo "API está disponível."
+              exit 0
+            fi
+
+            echo "Aguardando API..."
+            sleep 2
+          done
+
+          echo "A API não iniciou corretamente."
+          echo "Logs da API:"
+          cat api.log
+          exit 1
+
       - name: Executar testes
         run: npm test
         env:
           MONGODB_URI: mongodb://127.0.0.1:27017/gestao-de-alunos-test
+          PORT: 3000
