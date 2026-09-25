@@ -1,0 +1,22 @@
+[
+  {
+    "testTitle": "deve autenticar o administrador com credenciais válidas",
+    "emailEnv": "ADMIN_EMAIL",
+    "senhaEnv": "ADMIN_SENHA",
+    "statusCodeEsperado": 200,
+    "emailRespostaEnv": "ADMIN_EMAIL"
+  },
+  {
+    "testTitle": "deve autenticar o aluno com credenciais válidas",
+    "emailEnv": "ALUNO_EMAIL",
+    "senhaEnv": "ALUNO_SENHA",
+    "statusCodeEsperado": 200,
+    "emailRespostaEnv": "ALUNO_EMAIL"
+  },
+  {
+    "testTitle": "deve negar a autenticação com credenciais inválidas",
+    "emailEnv": "ADMIN_EMAIL",
+    "senhaEnv": "SENHA_INVALIDA",
+    "statusCodeEsperado": 401
+  }
+]

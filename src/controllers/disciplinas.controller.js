@@ -39,6 +39,7 @@ export const matricular = asyncHandler(async (req, res) => {
     throw new ApiError(400, 'O campo "alunoId" é obrigatório.');
   }
   const matricula = await matricularService(req.params.id, alunoId);
+  console.log('Matrícula retornada pelo service:', matricula);
   res.status(201).json(matricula);
 });
 

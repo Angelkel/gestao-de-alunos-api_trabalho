@@ -1,0 +1,19 @@
+[
+  {
+    "testTitle": "admin realiza cadastro de aluno e aluno registra entrega de trabalho",
+    "nome": "Aluno Fluxo",
+    "email": "aluno.fluxo.completo@example.com",
+    "matricula": "MAT001",
+    "senha": "123456",
+    "disciplinaNome": "Matemática",
+    "disciplinaCodigo": "MAT001",
+    "disciplinaId": "disciplina-programacao",
+    "titulo": "Trabalho do Fluxo Completo",
+    "disciplinaDescricao": "Disciplina de Matemática",
+    "descricao": "Descrição do trabalho do fluxo completo",
+    "cadastroStatusEsperado": 201,
+    "loginStatusEsperado": 200,
+    "matriculaStatusEsperado": 201,
+    "entregaStatusEsperado": 201
+  }
+]

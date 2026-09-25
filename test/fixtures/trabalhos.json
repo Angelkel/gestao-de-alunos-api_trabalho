@@ -1,0 +1,10 @@
+[
+  {
+    "testTitle": "aluno registra a entrega de um trabalho",
+    "alunoId": "5c9a7f76-9954-42e2-8c2f-90e35a5a2c96",
+    "disciplinaId": "bdcb2f97-d058-42b7-a54d-d3e581684c91",
+    "titulo": "Trabalho 1",
+    "descricao": "Descrição do trabalho do fluxo completo",
+    "statusCodeEsperado": 201
+  }
+]
