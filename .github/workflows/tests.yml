@@ -65,3 +65,8 @@ jobs:
           ADMIN_SENHA: ${{ secrets.ADMIN_SENHA }}
           ALUNO_EMAIL: ${{ secrets.ALUNO_EMAIL }}
           ALUNO_SENHA: ${{ secrets.ALUNO_SENHA }}
+
+      - name: Encerrar API
+        if: always()
+        run: |
+          pkill -f "node src/server.js" || true
