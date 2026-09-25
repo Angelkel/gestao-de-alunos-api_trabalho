@@ -58,6 +58,7 @@ jobs:
       - name: Executar testes
         run: npm test
         env:
+          BASE_URL: http://127.0.0.1:3000
           MONGODB_URI: mongodb://127.0.0.1:27017/gestao-de-alunos-test
           PORT: 3000
           ADMIN_EMAIL: ${{ secrets.ADMIN_EMAIL }}
