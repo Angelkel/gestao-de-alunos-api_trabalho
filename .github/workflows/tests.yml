@@ -60,3 +60,7 @@ jobs:
         env:
           MONGODB_URI: mongodb://127.0.0.1:27017/gestao-de-alunos-test
           PORT: 3000
+          ADMIN_EMAIL: ${{ secrets.ADMIN_EMAIL }}
+          ADMIN_SENHA: ${{ secrets.ADMIN_SENHA }}
+          ALUNO_EMAIL: ${{ secrets.ALUNO_EMAIL }}
+          ALUNO_SENHA: ${{ secrets.ALUNO_SENHA }}
