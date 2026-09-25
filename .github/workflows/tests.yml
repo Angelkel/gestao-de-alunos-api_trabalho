@@ -37,6 +37,8 @@ jobs:
       - name: Iniciar API
         run: |
           npm start > api.log 2>&1 &
+          echo $! > api.pid
+          echo "API iniciada com PID $(cat api.pid)"
 
       - name: Aguardar API
         run: |
@@ -69,4 +71,13 @@ jobs:
       - name: Encerrar API
         if: always()
         run: |
-          pkill -f "node src/server.js" || true
+          echo "Encerrando API..."
+
+          if [ -f api.pid ]; then
+            kill "$(cat api.pid)" 2>/dev/null || true
+            echo "API encerrada."
+          else
+            echo "PID da API não encontrado."
+          fi
+
+          sleep 2
