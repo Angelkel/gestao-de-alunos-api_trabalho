@@ -258,5 +258,5 @@ curl -X POST http://localhost:3000/api/alunos/aluno-ana-souza/trabalhos \
   -d '{"disciplinaId":"disciplina-matematica","titulo":"Lista de Exercícios 2"}'
 ```
 
-> Novos registros criados via API recebem ids no formato UUID (gerados com
+> Novos registros criados via API recebem ids no formato UUID (gerados com:
 > `crypto.randomUUID()`), diferente dos ids legíveis usados nos dados fake acima.
